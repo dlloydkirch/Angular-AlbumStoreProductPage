@@ -9,12 +9,12 @@ import { ProductService } from '../product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[];
-  _productsUrl: '../assets/products.json';
+  products: Product;
 
   constructor(private _productService: ProductService) { }
 
   ngOnInit() {
+    this._productService.getProducts().subscribe(response => this.products = response);
   }
 
 }
